@@ -8,7 +8,7 @@ RUN yum -y update \
 
 # Install Oracle Java8
 RUN wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1z6m6g7NAoOts1QYwc1M3rXyZMT0rvlSK' -O jdk-8u221-linux-x64.rpm \
- && yum localinstall jdk-8u221-linux-x64.rpm
+ && yum localinstall -y jdk-8u221-linux-x64.rpm
 
 RUN yum install -y unzip && yum clean all \
  && cd /tmp \
