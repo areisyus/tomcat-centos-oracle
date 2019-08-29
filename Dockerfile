@@ -1,5 +1,5 @@
 # Centos based container with Java and Tomcat
-FROM centos:centos7
+FROM centos
 
 # Install prepare infrastructure
 RUN yum -y update \
@@ -11,7 +11,8 @@ ENV JAVA_VERSION 8u221
 ENV JAVA_BUILD 8u221-b11
 ENV JAVA_DL_HASH 230deb18db3e4014bb8e3e8324f81b43
 
-RUN rpm --rebuilddb && curl -L -C - -b "oraclelicense=accept-securebackup-cookie" -O https://download.oracle.com/otn/java/jdk/8u221-b11/230deb18db3e4014bb8e3e8324f81b43/jre-8u221-linux-x64.rpm \
+RUN rpm --rebuilddb \ 
+ && wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "https://download.oracle.com/otn/java/jdk/8u221-b11/230deb18db3e4014bb8e3e8324f81b43/jdk-8u221-linux-x64.rpm" \
  && rpm -Uvh jre-*-linux-x64.rpm \
  && rm jre-*-linux-x64.rpm
 
