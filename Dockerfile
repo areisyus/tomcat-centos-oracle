@@ -12,7 +12,7 @@ ENV JAVA_BUILD 8u221-b11
 ENV JAVA_DL_HASH 230deb18db3e4014bb8e3e8324f81b43
 
 RUN rpm --rebuilddb \ 
- && wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "https://download.oracle.com/otn/java/jdk/8u221-b11/230deb18db3e4014bb8e3e8324f81b43/jdk-8u221-linux-x64.rpm" \
+ && wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/8u221-b11/jdk-8u221-linux-x64.rpm" \
  && rpm -Uvh jre-*-linux-x64.rpm \
  && rm jre-*-linux-x64.rpm
 
