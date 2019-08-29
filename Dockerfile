@@ -7,12 +7,8 @@ RUN yum -y update \
  && yum -y install tar
 
 # Install Oracle Java8
-ENV JAVA_VERSION 8u221
-ENV JAVA_BUILD 8u221-b11
-ENV JAVA_DL_HASH 230deb18db3e4014bb8e3e8324f81b43
-
-RUN wget https://drive.google.com/uc?export=download&id=1z6m6g7NAoOts1QYwc1M3rXyZMT0rvlSK \
- && yum localinstall jdk-8u102-linux-x64.rpm
+RUN wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1z6m6g7NAoOts1QYwc1M3rXyZMT0rvlSK' -O jdk-8u221-linux-x64.rpm \
+ && yum localinstall jdk-8u221-linux-x64.rpm
 
 RUN yum install -y unzip && yum clean all \
  && cd /tmp \
