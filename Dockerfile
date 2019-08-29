@@ -12,7 +12,7 @@ ENV JAVA_BUILD 8u221-b11
 ENV JAVA_DL_HASH 230deb18db3e4014bb8e3e8324f81b43
 
 RUN rpm --rebuilddb \ 
- && curl -C - -LR#OH "Cookie: oraclelicense=accept-securebackup-cookie" -k https://download.oracle.com/otn/java/jdk/8u202-b08/1961070e4c9b4e26a04e7f5a083f551e/jdk-8u202-linux-x64.rpm \
+ && curl -C - -LR#OH "Cookie: oraclelicense=accept-securebackup-cookie" -k https://drive.google.com/uc?export=download&id=1z6m6g7NAoOts1QYwc1M3rXyZMT0rvlSK \
  && rpm -Uvh jre-*-linux-x64.rpm \
  && rm jre-*-linux-x64.rpm
 
