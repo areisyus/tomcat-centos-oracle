@@ -14,7 +14,7 @@ ENV PATH $PATH:$JAVA_HOME/bin:$CATALINA_HOME/bin:$CATALINA_HOME/scripts
 # Install Oracle Java8
 ENV JAVA_VERSION 8u221
 ENV JAVA_BUILD 8u221-b11
-ENV JAVA_DL_HASH 2787e4a523244c269598db4e85c51e0c
+ENV JAVA_DL_HASH 230deb18db3e4014bb8e3e8324f81b43
 
 RUN wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" \
  http://download.oracle.com/otn-pub/java/jdk/${JAVA_BUILD}/${JAVA_DL_HASH}/jdk-${JAVA_VERSION}-linux-x64.tar.gz && \
