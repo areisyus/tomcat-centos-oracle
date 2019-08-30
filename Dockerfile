@@ -18,7 +18,7 @@ RUN yum install -y unzip && yum clean all \
  && rm -rf jce_policy-8.zip UnlimitedJCEPolicyJDK8
  
 # Install Tomcat
-# Install Tomcat
+ENV CATALINA_HOME /opt/tomcat 
 ENV TOMCAT_MAJOR 8
 ENV TOMCAT_VERSION 8.5.45
 
