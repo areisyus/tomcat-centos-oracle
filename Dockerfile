@@ -38,6 +38,10 @@ RUN chmod +x $CATALINA_HOME/scripts/*.sh
 RUN groupadd -r tomcat \
  && useradd -g tomcat -d ${CATALINA_HOME} -s /sbin/nologin  -c "Tomcat user" tomcat \
  && chown -R tomcat:tomcat ${CATALINA_HOME}
+ 
+ # Clean yum
+RUN yum clean all \
+ && rm -rf /var/cache/yum
 
 WORKDIR /opt/tomcat
 
