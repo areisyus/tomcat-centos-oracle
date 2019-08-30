@@ -20,12 +20,12 @@ RUN yum install -y unzip && yum clean all \
 # Install Tomcat
 # Install Tomcat
 ENV TOMCAT_MAJOR 8
-ENV TOMCAT_VERSION 8.5.35
+ENV TOMCAT_VERSION 8.5.45
 
-RUN wget http://mirror.linux-ia64.org/apache/tomcat/tomcat-${TOMCAT_MAJOR}/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz && \
- tar -xvf apache-tomcat-${TOMCAT_VERSION}.tar.gz && \
- rm apache-tomcat*.tar.gz && \
- mv apache-tomcat* ${CATALINA_HOME}
+RUN wget http://mirror.linux-ia64.org/apache/tomcat/tomcat-${TOMCAT_MAJOR}/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz \
+ && tar -xvf apache-tomcat-${TOMCAT_VERSION}.tar.gz \
+ && rm apache-tomcat*.tar.gz \
+ && mv apache-tomcat* ${CATALINA_HOME}
 
 RUN chmod +x ${CATALINA_HOME}/bin/*sh
 
@@ -35,9 +35,9 @@ ADD tomcat.sh $CATALINA_HOME/scripts/tomcat.sh
 RUN chmod +x $CATALINA_HOME/scripts/*.sh
 
 # Create tomcat user
-RUN groupadd -r tomcat && \
- useradd -g tomcat -d ${CATALINA_HOME} -s /sbin/nologin  -c "Tomcat user" tomcat && \
- chown -R tomcat:tomcat ${CATALINA_HOME}
+RUN groupadd -r tomcat \
+ && useradd -g tomcat -d ${CATALINA_HOME} -s /sbin/nologin  -c "Tomcat user" tomcat \
+ && chown -R tomcat:tomcat ${CATALINA_HOME}
 
 WORKDIR /opt/tomcat
 
