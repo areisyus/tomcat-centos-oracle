@@ -22,10 +22,9 @@ RUN wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=acc
  rm jdk*.tar.gz && \
  mv jdk* ${JAVA_HOME}
 
-
 # Install Tomcat
 ENV TOMCAT_MAJOR 8
-ENV TOMCAT_VERSION 8.5.35
+ENV TOMCAT_VERSION 8.5.45
 
 RUN wget http://mirror.linux-ia64.org/apache/tomcat/tomcat-${TOMCAT_MAJOR}/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz && \
  tar -xvf apache-tomcat-${TOMCAT_VERSION}.tar.gz && \
@@ -44,7 +43,7 @@ RUN groupadd -r tomcat && \
  useradd -g tomcat -d ${CATALINA_HOME} -s /sbin/nologin  -c "Tomcat user" tomcat && \
  chown -R tomcat:tomcat ${CATALINA_HOME}
 
- # Clean yum
+# Clean yum
 RUN yum clean all && \
  rm -rf /var/cache/yum
 
