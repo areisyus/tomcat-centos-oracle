@@ -12,12 +12,7 @@ ENV CATALINA_HOME /opt/tomcat
 ENV PATH $PATH:$JAVA_HOME/bin:$CATALINA_HOME/bin:$CATALINA_HOME/scripts
 
 # Install Oracle Java8
-ENV JAVA_VERSION 8u191
-ENV JAVA_BUILD 8u191-b12
-ENV JAVA_DL_HASH 2787e4a523244c269598db4e85c51e0c
-
 RUN wget --no-check-certificate 'https://docs.google.com/uc?export=download&id=1z6m6g7NAoOts1QYwc1M3rXyZMT0rvlSK' -O jdk-8u221-linux-x64.rpm && \
- yum localinstall jdk-8u221-linux-x64.rpm && \
  yum localinstall -y jdk-8u221-linux-x64.rpm
 
 # Install Tomcat
